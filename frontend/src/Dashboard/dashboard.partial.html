@@ -1,71 +1,125 @@
-<div class="container">
+<div id="page-wrapper">
 
-  <!-- upper section -->
-  <div class="row">
-    <div class="col-sm-3">
-      <!-- left -->
-      <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
-      <hr>
+  <div class="container-fluid">
 
-      <ul class="nav nav-stacked">
-        <li><a href=""><i class="glyphicon glyphicon-flash"></i> Dashboard</a></li>
-        <li><a href=""><i class="glyphicon glyphicon-user"></i> Employees</a></li>
-        <li><a href=""><i class="glyphicon glyphicon-list-alt"></i> Assessment Form</a></li>
-        <li><a href=""><i class="glyphicon glyphicon-book"></i> Report</a></li>
-      </ul>
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Dashboard <small>Overview</small>
+        </h1>
+      </div>
+    </div>
+    <!-- /.row -->
 
-      <hr>
-
-    </div><!-- /span-3 -->
-    <div class="col-sm-9">
-
-      <!-- column 2 -->
-      <h3><i class="glyphicon glyphicon-dashboard"></i> Dashboard</h3>
-
-      <hr>
-
-      <div class="row">
-        <!-- center left-->
-        <div class="col-md">
-          <div class="well">Inbox Messages <span class="badge pull-right">3</span></div>
-
-          <hr>
-
-          <div class="panel panel-default">
-            <div class="panel-heading"><h4>Processing Status</h4></div>
-            <div class="panel-body">
-
-              <small>Complete</small>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
-                  <span class="sr-only">72% Complete</span>
-                </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="glyphicon glyphicon-user"></i>
               </div>
-              <small>In Progress</small>
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                  <span class="sr-only">20% Complete</span>
-                </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">26</div>
+                <div>Employees!</div>
               </div>
-              <small>Not yet started</small>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                  <span class="sr-only">80% Complete</span>
-                </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-tasks fa-5x"></i>
               </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">12</div>
+                <div>Completed Forms!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">124</div>
+                <div>Emailed PDF results!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-support fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">13</div>
+                <div>Unfinished Forms!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
 
-            </div><!--/panel-body-->
-          </div><!--/panel-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> Statistics </h3>
+          </div>
+          <div class="panel-body">
+            <div class="googlechart" google-chart chart="dc.renderChart()"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
 
-        </div><!--/col-->
+  </div>
+  <!-- /.container-fluid -->
 
-      </div><!--/row-->
-    </div><!--/col-span-9-->
-
-  </div><!--/row-->
-  <!-- /upper section -->
-
-
-</div><!--/container-->
-<!-- /Main -->
-
+</div>
+<!-- /#page-wrapper -->

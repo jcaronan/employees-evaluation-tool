@@ -20,23 +20,18 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(__dirname, 'src')
     }, {
       test: /\.partial\.html$/,
       loaders: ['html-loader'],
-      include: path.join(__dirname, 'src')
     }, {
       test: /\.css$/,
       loaders: ["style", "css"],
-      //include: path.join(__dirname, 'src')
     }, {
       test: /\.scss$/,
       loaders: ["style", "sass"],
-      include: path.join(__dirname, 'src')
     },{
       test: /\.(png|woff|woff2|eot|ttf|svg)$/,
       loaders: ['file-loader'],
-      //include: path.join(__dirname, 'src')
     }]
   }
 };
