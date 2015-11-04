@@ -129,9 +129,9 @@ body {
     color: #fff;
 }
 
-/* Google Char */
+/* Google Chart */
 .googlechart {
-height: 300px;
+    height: 300px;
 }
 
 /* Custom Colored Panels */
@@ -192,4 +192,27 @@ height: 300px;
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+/* employees page table */
+.row.tablerow {
+    padding-top: 20px;
+}
+
+button.btn.btn-primary.add-employee {
+    height: 40px;
+}
+
+.panel-title {
+    /*vertical-align: middle;*/
+    margin-top: 15px;
+}
+
+.row.tablehead {
+    width: inherit;
+    padding-right: 5px;
+}
+
+div#tabhead1, div#tabhead2 {
+    height: 40px;
 }
