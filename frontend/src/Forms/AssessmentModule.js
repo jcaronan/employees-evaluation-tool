@@ -1,7 +1,6 @@
 /**
  * Created by jcaronan on 11/4/15.
  */
-import '../styles/style.css'
 import angular from 'angular'
 import 'angular-bootstrap'
 import 'angular-route'
