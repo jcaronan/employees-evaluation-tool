@@ -32,7 +32,7 @@
                 <h3 class="panel-title"><i class="glyphicon glyphicon-list"></i> List of Employees </h3>
               </div>
               <div class="col-sm-2 col-sm-offset-4 col-md-2 col-md-offset-4 col-lg-1 col-lg-offset-5" id="tabhead2">
-                <button type="button" class="btn btn-primary add-employee">
+                <button type="button" class="btn btn-primary add-employee" ng-click="ec.openModal()">
                   <i class="glyphicon glyphicon-plus"></i> Add
                 </button>
               </div>
@@ -44,9 +44,7 @@
                 <thead>
                 <tr>
                   <th>Row</th>
-                  <th>Last Name</th>
-                  <th>First Name</th>
-                  <th>Middle Name</th>
+                  <th>Name</th>
                   <th>Email</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -55,9 +53,7 @@
                 <tbody>
                 <tr class="success">
                   <td>1</td>
-                  <td>John</td>
-                  <td>Carter</td>
-                  <td>Monroe</td>
+                  <td>John Doe</td>
                   <td>johncarter@mail.com</td>
                   <td>Done</td>
                   <td>
@@ -70,9 +66,7 @@
                 </tr>
                 <tr class="danger">
                   <td>2</td>
-                  <td>Peter</td>
-                  <td>Parker</td>
-                  <td>Aniston</td>
+                  <td>Peter Piper</td>
                   <td>peterparker@mail.com</td>
                   <td>Not yet assessed</td>
                   <td>
@@ -85,9 +79,7 @@
                 </tr>
                 <tr class="info">
                   <td>3</td>
-                  <td>John</td>
-                  <td>Rambo</td>
-                  <td>Kunis</td>
+                  <td>John Cena</td>
                   <td>johnrambo@mail.com</td>
                   <td>On-going</td>
                   <td>
@@ -110,8 +102,30 @@
 
   </div>
   <!-- /.container-fluid -->
-
 </div>
 <!-- /#page-wrapper -->
+
+<!--modal-->
+<script type="text/ng-template" id="employee.modal.tmpl">
+  <div class="modal-header">
+    <h3 class="modal-title">Add an employee</h3>
+  </div>
+  <div class="modal-body">
+    <form role="form">
+      <div class="form-group">
+        <label for="usr">Name: </label>
+        <input type="text" class="form-control" id="usr" ng-model="mc.employee.name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" ng-model="mc.employee.emailAddress">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mc.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
+  </div>
+</script>
 
 

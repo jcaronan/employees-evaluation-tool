@@ -8,7 +8,9 @@ com/cloudsherpas/employeetool/config/ServiceAppContext.class
 com/cloudsherpas/employeetool/config/DaoAppContext.class
 com/cloudsherpas/employeetool/dao/impl/EmployeeDaoImpl.class
 com/cloudsherpas/employeetool/config/AutowireSupportServiceServlet.class
+com/cloudsherpas/employeetool/security/CORSFilter.class
 com/cloudsherpas/employeetool/model/Employee.class
+com/cloudsherpas/employeetool/cors/CORSHeaders.class
 com/cloudsherpas/employeetool/api/EmployeeResource.class
 com/cloudsherpas/employeetool/dao/impl/BaseDaoImpl.class
 com/cloudsherpas/employeetool/dto/EmployeeListDTO.class

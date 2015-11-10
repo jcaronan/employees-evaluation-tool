@@ -3,7 +3,7 @@
  */
 import '../styles/style.css'
 import angular from 'angular'
-import 'angular-bootstrap'
+import 'angular-ui-bootstrap'
 import 'angular-route'
 import 'angular-google-chart'
 import DashboardRoutes from './DashboardRoutes'
