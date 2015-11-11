@@ -10,6 +10,7 @@ public class Employee {
     @Id
     private Long id;
     private String name;
+    private String status;
     private String emailAddress;
 
     public void setId(Long id){
@@ -26,6 +27,14 @@ public class Employee {
 
     public String getName(){
         return name;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setEmailAddress(String emailAddress){

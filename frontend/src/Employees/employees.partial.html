@@ -43,7 +43,6 @@
               <table class="table table-striped">
                 <thead>
                 <tr>
-                  <th>Row</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Status</th>
@@ -51,37 +50,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="success">
-                  <td>1</td>
-                  <td>John Doe</td>
-                  <td>johncarter@mail.com</td>
-                  <td>Done</td>
-                  <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-check"></i></button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="danger">
-                  <td>2</td>
-                  <td>Peter Piper</td>
-                  <td>peterparker@mail.com</td>
-                  <td>Not yet assessed</td>
-                  <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-check"></i></button>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="info">
-                  <td>3</td>
-                  <td>John Cena</td>
-                  <td>johnrambo@mail.com</td>
-                  <td>On-going</td>
+                <tr ng-repeat="employee in ec.employees" ng-class="">
+                  <td>{{ employee.name }}</td>
+                  <td>{{ employee.emailAddress }}</td>
+                  <td>{{ employee.status}}</td>
                   <td>
                     <div class="btn-group" role="group" aria-label="...">
                       <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>

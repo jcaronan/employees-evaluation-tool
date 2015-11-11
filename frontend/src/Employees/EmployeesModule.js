@@ -9,6 +9,7 @@ import { EmployeesController } from './EmployeesController'
 import { ModalController } from './ModalController'
 import { EmployeeService } from './EmployeeService'
 import { Employee } from './Employee'
+import { EmployeeDirective } from './EmployeeDirective'
 
 angular.module('EmployeesModule', ['ui.bootstrap','ngRoute'])
   .controller('EmployeesController', EmployeesController)
@@ -16,3 +17,4 @@ angular.module('EmployeesModule', ['ui.bootstrap','ngRoute'])
   .service('EmployeeService', EmployeeService)
   .factory('Employee', Employee)
   .config(EmployeesRoutes)
+  //.directive('employeeRow' , EmployeeDirective.directiveFactory)

@@ -4,6 +4,7 @@ public class EmployeeDTO {
 
     private Long id;
     private String name;
+    private String status;
     private String emailAddress;
 
     public void setId(Long id) {
@@ -20,6 +21,14 @@ public class EmployeeDTO {
 
     public String getName() {
         return name;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setEmailAddress(String emailAddress) {

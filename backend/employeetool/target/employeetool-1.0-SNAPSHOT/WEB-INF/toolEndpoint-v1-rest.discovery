@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/wDZ98ra61k0VbI8ib2XDkzJYjE4\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/NOeCa4Moxm8FLpUQkEgjOGXx3dI\"",
  "discoveryVersion": "v1",
  "id": "toolEndpoint:v1",
  "name": "toolEndpoint",
@@ -85,6 +85,9 @@
      "format": "int64"
     },
     "name": {
+     "type": "string"
+    },
+    "status": {
      "type": "string"
     }
    }
