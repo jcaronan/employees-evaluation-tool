@@ -6,7 +6,7 @@
             <param-name>services</param-name>
             <param-value>
                 com.cloudsherpas.employeetool.api.EmployeeResource,
-                com.cloudsherpas.employeetool.api.AssessmentResource
+                com.cloudsherpas.employeetool.api.QuestionResource
             </param-value>
         </init-param>
     </servlet>

@@ -1,8 +1,8 @@
 import angular from 'angular'
 import './Dashboard/DashboardModule'
 import './Employees/EmployeesModule'
-import './Forms/AssessmentModule'
+import './Forms/QuestionModule'
 import './Reports/ReportModule'
 import './RestClient/RestClientModule'
 
-angular.module('MainModule', ['DashboardModule', 'EmployeesModule', 'AssessmentModule', 'ReportModule', 'RestClientModule'])
+angular.module('MainModule', ['DashboardModule', 'EmployeesModule', 'QuestionModule', 'ReportModule', 'RestClientModule'])

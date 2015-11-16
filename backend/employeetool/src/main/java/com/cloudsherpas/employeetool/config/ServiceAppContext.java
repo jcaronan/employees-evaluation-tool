@@ -1,7 +1,7 @@
 package com.cloudsherpas.employeetool.config;
 
 import com.cloudsherpas.employeetool.service.EmployeeService;
-import com.cloudsherpas.employeetool.service.AssessmentService;
+import com.cloudsherpas.employeetool.service.QuestionService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -14,8 +14,8 @@ public class ServiceAppContext {
         return new EmployeeService();
     }
 
-    @Bean(name="assessmentService")
-    public AssessmentService getAssessmentService(){
-        return new AssessmentService();
+    @Bean(name="questionService")
+    public QuestionService getQuestionService(){
+        return new QuestionService();
     }
 }
