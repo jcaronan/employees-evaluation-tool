@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/VXeHYfZZKQtE03mcrk9toJVt1B0\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/-6v_Lgo6z-1_LutpDqRRcIg2muc\"",
  "discoveryVersion": "v1",
  "id": "toolEndpoint:v1",
  "name": "toolEndpoint",
@@ -73,6 +73,46 @@
   }
  },
  "schemas": {
+  "AssessmentDTO": {
+   "id": "AssessmentDTO",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "question": {
+     "type": "string"
+    },
+    "score": {
+     "type": "string"
+    }
+   }
+  },
+  "AssessmentDTOCollection": {
+   "id": "AssessmentDTOCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "AssessmentDTO"
+     }
+    }
+   }
+  },
+  "AssessmentListDTO": {
+   "id": "AssessmentListDTO",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "AssessmentDTO"
+     }
+    }
+   }
+  },
   "EmployeeDTO": {
    "id": "EmployeeDTO",
    "type": "object",
@@ -122,6 +162,92 @@
   }
  },
  "resources": {
+  "assessment": {
+   "methods": {
+    "delete": {
+     "id": "toolEndpoint.assessment.delete",
+     "path": "assessment",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "get": {
+     "id": "toolEndpoint.assessment.get",
+     "path": "assessment",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "AssessmentDTO"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "getAll": {
+     "id": "toolEndpoint.assessment.getAll",
+     "path": "assessment/all",
+     "httpMethod": "GET",
+     "response": {
+      "$ref": "AssessmentDTOCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "put": {
+     "id": "toolEndpoint.assessment.put",
+     "path": "assessment",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "AssessmentDTO",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "JsonMap"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "putBatch": {
+     "id": "toolEndpoint.assessment.putBatch",
+     "path": "assessments",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "AssessmentListDTO",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "AssessmentDTOCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  },
   "employee": {
    "methods": {
     "delete": {

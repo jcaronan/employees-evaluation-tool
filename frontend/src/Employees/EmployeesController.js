@@ -4,9 +4,8 @@
 
 
 export class EmployeesController {
-  constructor($uibModal, EmployeeService, employeeInit) {
+  constructor($uibModal, employeeInit) {
     this.$uibModal = $uibModal
-    this.EmployeeService = EmployeeService
     this.employees = employeeInit
   }
 
@@ -15,7 +14,7 @@ export class EmployeesController {
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: 'employee.modal.tmpl',
-      controller: 'ModalController as mc',
+      controller: 'EmpModalController as mc',
       resolve: {
         employee: function () {
           return {}
@@ -38,7 +37,7 @@ export class EmployeesController {
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: 'employee.modal.tmpl',
-      controller: 'ModalController as mc',
+      controller: 'EmpModalController as mc',
       resolve: {
         employee: function () {
           return Object.assign({}, this.employees[index]);
@@ -61,7 +60,7 @@ export class EmployeesController {
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: 'delete.modal.tmpl',
-      controller: 'ModalController as mc',
+      controller: 'EmpModalController as mc',
       resolve: {
         employee: function () {
           return Object.assign({}, this.employees[index]);
@@ -83,4 +82,4 @@ export class EmployeesController {
 
 }
 
-EmployeesController.$inject = ['$uibModal', 'EmployeeService', 'employeeInit']
+EmployeesController.$inject = ['$uibModal', 'employeeInit']

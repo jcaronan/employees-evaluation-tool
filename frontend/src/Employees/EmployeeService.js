@@ -9,7 +9,6 @@ export class EmployeeService {
     this.$q = $q;
     this.restService = RestService;
     this.employeeApi = "employee";
-    this.employeesList = [];
   }
 
   addUpdateEmployee(employee){
@@ -46,12 +45,6 @@ export class EmployeeService {
         deferred.resolve(error);
       });
     return deferred.promise
-  }
-
-  capitalizeEachWord(str) {
-    return str.replace(/\w\S*/g, function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
   }
 
   getEmployees(){

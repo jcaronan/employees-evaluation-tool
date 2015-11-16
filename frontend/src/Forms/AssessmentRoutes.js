@@ -4,7 +4,12 @@ export default function AssessmentRoutes(route, location) {
     .when('/forms', {
       template: assessment_dashboard,
       controller: 'AssessmentController',
-      controllerAs: 'ac'
+      controllerAs: 'ac',
+      resolve: {
+        assessmentInit: function (AssessmentService) {
+          return AssessmentService.getQuestions()
+        }
+      }
     })
 
   location.html5Mode({

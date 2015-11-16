@@ -14,11 +14,11 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="input-group">
-          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Poor</label>
-          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Needs Improvement</label>
-          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Satisfactory</label>
-          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Excellent</label>
-          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> God</label>
+          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Unsatisfactory</label>
+          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Improvement Needed</label>
+          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Meets Expectation</label>
+          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Exceeds Expectation</label>
+          <label class="checkbox-inline"><input type="radio" value="" disabled="true"> Exceptional</label>
         </div>
         <!-- /input-group -->
       </div>
@@ -33,7 +33,7 @@
                 <h3 class="panel-title"><i class="glyphicon glyphicon-list"></i> Set of Question(s) </h3>
               </div>
               <div class="col-sm-2 col-sm-offset-4 col-md-2 col-md-offset-4 col-lg-1 col-lg-offset-5" id="tabhead2">
-                <button type="button" class="btn btn-primary add-employee">
+                <button type="button" class="btn btn-primary add-employee" ng-click="ac.openModal()">
                   <i class="glyphicon glyphicon-plus"></i> Add
                 </button>
               </div>
@@ -45,40 +45,21 @@
                 <thead>
                 <tr>
                   <th>Question</th>
-                  <th>Rating</th>
+                  <th>Score</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>What is blablablablabalbla</td>
-                  <td>10</td>
+                <tr ng-repeat="q in ac.assessmentList track by $index">
+                  <td>{{ q.question }}</td>
+                  <td>{{ q.score }}</td>
                   <td>
                     <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
+                      <button type="button" class="btn btn-default" ng-click="ac.update($index)"><i class="glyphicon glyphicon-pencil"></i></button>
+                      <button type="button" class="btn btn-default" ng-click="ac.delete($index)"><i class="glyphicon glyphicon-remove"></i></button>
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <td>What is blablablablabalbla</td>
-                  <td>10</td>
-                  <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>What is blablablablabalbla</td>
-                  <td>10</td>
-                  <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
-                    </div>
-                  </td>
                 </tr>
                 </tbody>
               </table>
@@ -88,12 +69,48 @@
       </div>
     </div>
     <!-- /.row -->
-
-
   </div>
   <!-- /.container-fluid -->
 
 </div>
 <!-- /#page-wrapper -->
 
+
+<!--Add/Update modal-->
+<script type="text/ng-template" id="assessment.modal.tmpl">
+  <div class="modal-header">
+    <h3 class="modal-title">{{ mc.title }}</h3>
+  </div>
+  <div class="modal-body">
+    <form role="form">
+      <div class="form-group">
+        <label for="question">Question: </label>
+        <input type="text" class="form-control" id="question" ng-model="mc.assessment.question">
+      </div>
+      <div class="form-group">
+        <label for="score">Score:</label>
+        <input type="text" class="form-control" id="score" ng-model="mc.assessment.score" style="width: 50px">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mc.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
+  </div>
+</script>
+
+<!--Delete modal-->
+<script type="text/ng-template" id="delete.modal.tmpl">
+  <div class="modal-header">
+    <h3 class="modal-title">Delete Question</h3>
+  </div>
+  <div class="modal-body">
+    <h5>Are you sure you want to delete ' {{ mc.assessment.question }} '?</h5>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mc.delete()">Delete</button>
+    <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
+  </div>
+</script>
 

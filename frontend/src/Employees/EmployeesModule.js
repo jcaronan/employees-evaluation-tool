@@ -6,14 +6,14 @@ import 'angular-ui-bootstrap'
 import 'angular-route'
 import EmployeesRoutes from './EmployeesRoutes'
 import { EmployeesController } from './EmployeesController'
-import { ModalController } from './ModalController'
+import { EmpModalController } from './EmpModalController'
 import { EmployeeService } from './EmployeeService'
 import { Employee } from './Employee'
 import { EmployeeDirective } from './EmployeeDirective'
 
 angular.module('EmployeesModule', ['ui.bootstrap','ngRoute'])
   .controller('EmployeesController', EmployeesController)
-  .controller('ModalController', ModalController)
+  .controller('EmpModalController', EmpModalController)
   .service('EmployeeService', EmployeeService)
   .factory('Employee', Employee)
   .config(EmployeesRoutes)

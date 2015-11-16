@@ -1,5 +1,6 @@
 package com.cloudsherpas.employeetool.dao;
 
+import com.cloudsherpas.employeetool.model.Assessment;
 import com.cloudsherpas.employeetool.model.Employee;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
@@ -23,6 +24,7 @@ public class DaoManager {
     private static void registerEntities() {
         ObjectifyService.begin();
         ObjectifyService.factory().register(Employee.class);
+        ObjectifyService.factory().register(Assessment.class);
     }
 
     public Objectify getObjectify() {
