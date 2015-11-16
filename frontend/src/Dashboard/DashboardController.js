@@ -2,10 +2,10 @@
  * Created by jcaronan on 11/2/15.
  */
 export class DashboardController {
-  constructor($routeParams, EmployeeService) {
+  constructor($routeParams, DashboardService) {
+    this.DashboardService = DashboardService
     this.$routeParams = $routeParams
     this.chartObject = {}
-    this.EmployeeService = EmployeeService
   }
 
   renderChart(){
@@ -55,10 +55,6 @@ export class DashboardController {
     return this.chartObject
   }
 
-  load(){
-    //this.EmployeeService.getEmployees();
-    console.log("hey")
-  }
 }
 
-DashboardController.$inject = ['$routeParams', 'EmployeeService']
+DashboardController.$inject = ['$routeParams', 'DashboardService']

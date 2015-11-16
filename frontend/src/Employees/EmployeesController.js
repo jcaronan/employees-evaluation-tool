@@ -1,31 +1,86 @@
 /**
  * Created by jcaronan on 11/4/15.
  */
+
+
 export class EmployeesController {
-  constructor($uibModal, EmployeeService) {
+  constructor($uibModal, EmployeeService, employeeInit) {
     this.$uibModal = $uibModal
     this.EmployeeService = EmployeeService
-    this.EmployeeService.getEmployees()
-    this.employees = this.EmployeeService.employeesList
-    console.log(this.EmployeeService.employeesList)
+    this.employees = employeeInit
   }
+
 
   openModal() {
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: 'employee.modal.tmpl',
-      controller: 'ModalController as mc'
+      controller: 'ModalController as mc',
+      resolve: {
+        employee: function () {
+          return {}
+        },
+        title: function () {
+          return "Add New Employee"
+        }
+      }
     })
+
+    modalInstance.result.then(function (employee) {
+        this.employees.push(employee)
+      }.bind(this),
+      function () {
+        console.log('Modal dismissed');
+      });
   }
 
-  getList(){
-    this.EmployeeService.getEmployees();
-    this.employees = this.EmployeeService.employeesList;
+  update(index) {
+    var modalInstance = this.$uibModal.open({
+      animation: true,
+      templateUrl: 'employee.modal.tmpl',
+      controller: 'ModalController as mc',
+      resolve: {
+        employee: function () {
+          return Object.assign({}, this.employees[index]);
+        }.bind(this),
+        title: function () {
+          return "Edit Employee"
+        }
+      }
+    })
+
+    modalInstance.result.then(function (employee) {
+        this.employees[index] = employee
+      }.bind(this),
+      function () {
+        console.log('Modal dismissed');
+      });
   }
 
-  load(){
-    console.log("yey");
+  delete(index){
+    var modalInstance = this.$uibModal.open({
+      animation: true,
+      templateUrl: 'delete.modal.tmpl',
+      controller: 'ModalController as mc',
+      resolve: {
+        employee: function () {
+          return Object.assign({}, this.employees[index]);
+        }.bind(this),
+        title: function () {
+          return ""
+        }
+      }
+    })
+
+    modalInstance.result.then(function () {
+        this.employees.splice(index, 1)
+      }.bind(this),
+      function () {
+        console.log('Modal dismissed');
+      });
+
   }
+
 }
 
-EmployeesController.$inject = ['$uibModal', 'EmployeeService']
+EmployeesController.$inject = ['$uibModal', 'EmployeeService', 'employeeInit']

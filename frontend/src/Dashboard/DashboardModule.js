@@ -8,7 +8,9 @@ import 'angular-route'
 import 'angular-google-chart'
 import DashboardRoutes from './DashboardRoutes'
 import { DashboardController } from './DashboardController'
+import { DashboardService } from './DashboardService'
 
 angular.module('DashboardModule', ['ui.bootstrap','ngRoute', 'googlechart'])
   .controller('DashboardController', DashboardController)
+  .service('DashboardService', DashboardService)
   .config(DashboardRoutes)

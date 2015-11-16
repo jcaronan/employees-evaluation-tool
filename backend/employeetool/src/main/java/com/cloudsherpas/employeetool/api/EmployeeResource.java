@@ -75,6 +75,11 @@ public class EmployeeResource {
         return employeeService.addUpdateEmployees(employeeList.getItems());
     }
 
+    @ApiMethod(
+            name = "employee.delete",
+            path = "employee",
+            httpMethod =ApiMethod.HttpMethod.DELETE
+    )
     public void deleteEmployee(@Named("id") final Long key){
         employeeService.deleteEmployee(key);
     }

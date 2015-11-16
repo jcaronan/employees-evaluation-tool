@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/NOeCa4Moxm8FLpUQkEgjOGXx3dI\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/VXeHYfZZKQtE03mcrk9toJVt1B0\"",
  "discoveryVersion": "v1",
  "id": "toolEndpoint:v1",
  "name": "toolEndpoint",
@@ -124,6 +124,25 @@
  "resources": {
   "employee": {
    "methods": {
+    "delete": {
+     "id": "toolEndpoint.employee.delete",
+     "path": "employee",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
     "get": {
      "id": "toolEndpoint.employee.get",
      "path": "employee",
@@ -183,29 +202,6 @@
      "response": {
       "$ref": "EmployeeDTOCollection"
      },
-     "scopes": [
-      "https://www.googleapis.com/auth/userinfo.email"
-     ]
-    }
-   }
-  },
-  "employeeResource": {
-   "methods": {
-    "deleteEmployee": {
-     "id": "toolEndpoint.employeeResource.deleteEmployee",
-     "path": "employee/{id}",
-     "httpMethod": "DELETE",
-     "parameters": {
-      "id": {
-       "type": "string",
-       "required": true,
-       "format": "int64",
-       "location": "path"
-      }
-     },
-     "parameterOrder": [
-      "id"
-     ],
      "scopes": [
       "https://www.googleapis.com/auth/userinfo.email"
      ]

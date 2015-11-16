@@ -12,36 +12,59 @@ export class EmployeeService {
     this.employeesList = [];
   }
 
-  addEmployee(employee){
+  addUpdateEmployee(employee){
     employee.name = this.capitalizeEachWord(employee.name)
-    employee.status = "Done";
+    employee.status = "Not yet assessed";
     var emp = new Employee(employee);
-    //var deferred = this.$q.defer();
+    var deferred = this.$q.defer();
 
     this.restService.put(this.employeeApi, emp).then(
       function success(response){
-        //console.log(response); OK
+        deferred.resolve(response)
       },
       function error(error){
-        console.log(error);
+        deferred.resolve(error);
       });
-    //return deferred.promise;
-  }
-
-  getEmployees(){
-    this.restService.get(this.employeeApi + "/all").then(
-      function success(response){
-        this.employeesList = response.data.items
-      }.bind(this),
-      function error(error){
-        console.log(error);
-      })
+    return deferred.promise
   }
 
   capitalizeEachWord(str) {
     return str.replace(/\w\S*/g, function(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
+  }
+
+  deleteEmployee(employee){
+    var emp = new Employee(employee);
+    var deferred = this.$q.defer();
+
+    this.restService.delete(this.employeeApi, emp).then(
+      function success(response){
+        deferred.resolve(response)
+      },
+      function error(error){
+        deferred.resolve(error);
+      });
+    return deferred.promise
+  }
+
+  capitalizeEachWord(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
+  getEmployees(){
+    var deferred = this.$q.defer();
+    this.restService.get(this.employeeApi + "/all").then(
+      function success(response){
+        deferred.resolve(response.data.items);
+      },
+      function error(error){
+        deferred.resolve(error)
+      })
+
+    return deferred.promise;
   }
 }
 

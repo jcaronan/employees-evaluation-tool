@@ -16,7 +16,7 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-search"></i></button>
+        <button class="btn btn-primary" type="button" ng-click="ec.refreshList()"><i class="glyphicon glyphicon-search"></i></button>
       </span>
         </div>
         <!-- /input-group -->
@@ -50,14 +50,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="employee in ec.employees" ng-class="">
-                  <td>{{ employee.name }}</td>
-                  <td>{{ employee.emailAddress }}</td>
-                  <td>{{ employee.status}}</td>
+                <tr ng-repeat="emp in ec.employees track by $index" ng-class="">
+                  <td>{{ emp.name }}</td>
+                  <td>{{ emp.emailAddress }}</td>
+                  <td>{{ emp.status}}</td>
                   <td>
                     <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                      <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
+                      <button type="button" class="btn btn-default" ng-click="ec.update($index)"><i class="glyphicon glyphicon-pencil"></i></button>
+                      <button type="button" class="btn btn-default" ng-click="ec.delete($index)"><i class="glyphicon glyphicon-remove"></i></button>
                       <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-check"></i></button>
                     </div>
                   </td>
@@ -77,10 +77,10 @@
 </div>
 <!-- /#page-wrapper -->
 
-<!--modal-->
+<!--Add/Update modal-->
 <script type="text/ng-template" id="employee.modal.tmpl">
   <div class="modal-header">
-    <h3 class="modal-title">Add an employee</h3>
+    <h3 class="modal-title">{{ mc.title }}</h3>
   </div>
   <div class="modal-body">
     <form role="form">
@@ -96,6 +96,21 @@
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="mc.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
+  </div>
+</script>
+
+<!--Delete modal-->
+<script type="text/ng-template" id="delete.modal.tmpl">
+  <div class="modal-header">
+    <h3 class="modal-title">Delete Employee</h3>
+  </div>
+  <div class="modal-body">
+    <h5>Are you sure you want to delete {{ mc.employee.name }}?</h5>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mc.delete()">Delete</button>
     <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
   </div>
 </script>

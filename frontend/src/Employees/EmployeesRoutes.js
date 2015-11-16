@@ -8,7 +8,12 @@ export default function EmployeesRoutes(route, location) {
     .when('/employees', {
       template: employees_dashboard,
       controller: 'EmployeesController',
-      controllerAs: 'ec'
+      controllerAs: 'ec',
+      resolve: {
+        employeeInit: function (EmployeeService) {
+         return EmployeeService.getEmployees()
+        }
+      }
     })
 
   location.html5Mode({
