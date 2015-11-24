@@ -15,8 +15,11 @@ export class EmpModalController {
   }
 
   save() {
+    this.employee.status = 'New'
     this.EmployeeService.addUpdateEmployee(this.employee).then(
       function success(response){
+        console.log(response)
+        this.employee.id = response.data.key
         this.$uibModalInstance.close(this.employee)
       }.bind(this),
       function error(error){

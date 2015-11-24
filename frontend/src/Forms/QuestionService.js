@@ -51,6 +51,19 @@ export class QuestionService {
 
     return deferred.promise;
   }
+
+  getQuestion(qid){
+    var deferred = this.$q.defer();
+    this.restService.get(this.questionApi,{'id':qid} ).then(
+      function success(response){
+        deferred.resolve(response.data);
+      },
+      function error(error){
+        deferred.resolve(error)
+      })
+
+    return deferred.promise;
+  }
 }
 
 QuestionService.$inject = ['RestService', '$q']

@@ -4,9 +4,13 @@
 
 
 export class EmployeesController {
-  constructor($uibModal, employeeInit) {
+  constructor($uibModal, employeeInit, $location, EmployeeService, AssessmentService, AnswerService) {
     this.$uibModal = $uibModal
     this.employees = employeeInit
+    this.$location = $location
+    this.EmployeeService = EmployeeService;
+    this.AssessmentService = AssessmentService;
+    this.AnswerService = AnswerService;
   }
 
 
@@ -77,9 +81,25 @@ export class EmployeesController {
       function () {
         console.log('Modal dismissed');
       });
-
   }
+
+  goToAssessment(index){
+    this.AssessmentService.setEmployee(this.employees[index])
+    if(this.employees[index].status=='New'){
+      this.AssessmentService.addUpdateAssessment(this.employees[index].id)
+      this.employees[index].status = 'Ongoing'
+      this.EmployeeService.addUpdateEmployee(this.employees[index])
+    }
+    else if(this.employees[index].status=='Ongoing'){
+      this.AssessmentService.getAssessmentByEmployee(this.employees[index].id)
+    }else if(this.employees[index].status=='Done'){
+      //pdf
+    }
+
+    this.$location.path('/assessment');
+  }
+
 
 }
 
-EmployeesController.$inject = ['$uibModal', 'employeeInit']
+EmployeesController.$inject = ['$uibModal', 'employeeInit', '$location', 'EmployeeService', 'AssessmentService', 'AnswerService']

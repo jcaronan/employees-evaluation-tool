@@ -9,6 +9,7 @@ import 'angular-google-chart'
 import DashboardRoutes from './DashboardRoutes'
 import { DashboardController } from './DashboardController'
 import { DashboardService } from './DashboardService'
+import vina from '../vina.png'
 
 angular.module('DashboardModule', ['ui.bootstrap','ngRoute', 'googlechart'])
   .controller('DashboardController', DashboardController)

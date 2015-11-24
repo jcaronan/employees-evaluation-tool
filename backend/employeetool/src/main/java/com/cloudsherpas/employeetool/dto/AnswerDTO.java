@@ -4,6 +4,7 @@ public class AnswerDTO {
 
     private Long id;
     private Long questionId;
+    private Long assessmentId;
     private int rating;
     private int grade;
 
@@ -37,5 +38,13 @@ public class AnswerDTO {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    public Long getAssessmentId() {
+        return assessmentId;
+    }
+
+    public void setAssessmentId(Long assessmentId) {
+        this.assessmentId = assessmentId;
     }
 }

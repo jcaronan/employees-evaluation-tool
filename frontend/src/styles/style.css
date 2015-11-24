@@ -208,9 +208,17 @@ button.btn.btn-primary.add-employee {
     margin-top: 15px;
 }
 
+.panel-questions.row{
+    padding-left: 30px
+}
+
+.split-pane-divider{
+    border-bottom: solid 1px #ddd;
+}
 .row.tablehead {
     width: inherit;
     padding-right: 5px;
+    padding-left: 5px;
 }
 
 div#tabhead1, div#tabhead2 {

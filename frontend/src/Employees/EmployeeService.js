@@ -13,7 +13,6 @@ export class EmployeeService {
 
   addUpdateEmployee(employee){
     employee.name = this.capitalizeEachWord(employee.name)
-    employee.status = "Not yet assessed";
     var emp = new Employee(employee);
     var deferred = this.$q.defer();
 

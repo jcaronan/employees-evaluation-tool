@@ -1,5 +1,7 @@
 package com.cloudsherpas.employeetool.dao;
 
+import com.cloudsherpas.employeetool.model.Answer;
+import com.cloudsherpas.employeetool.model.Assessment;
 import com.cloudsherpas.employeetool.model.Question;
 import com.cloudsherpas.employeetool.model.Employee;
 import com.googlecode.objectify.Objectify;
@@ -25,6 +27,8 @@ public class DaoManager {
         ObjectifyService.begin();
         ObjectifyService.factory().register(Employee.class);
         ObjectifyService.factory().register(Question.class);
+        ObjectifyService.factory().register(Answer.class);
+        ObjectifyService.factory().register(Assessment.class);
     }
 
     public Objectify getObjectify() {
