@@ -22,7 +22,8 @@ export class AssessmentController {
     this.AnswerService.addUpdateAnswer(this.AssessmentService.assessmentId,value, q)
   }
 
-  generatePdf(){
+  submitReport(){
+    
 
   }
 }
