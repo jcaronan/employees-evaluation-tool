@@ -16,6 +16,7 @@ export class QModalController {
   save() {
     this.QuestionService.addUpdateQuestion(this.question).then(
       function success(response){
+        this.question.id = response.data.key
         this.$uibModalInstance.close(this.question)
       }.bind(this),
       function error(error){

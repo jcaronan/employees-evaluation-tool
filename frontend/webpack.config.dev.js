@@ -8,7 +8,7 @@ module.exports = {
     './src/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: '/',
     filename: 'bundle.js',
     publicPath: '/static/'
   },
@@ -16,22 +16,47 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  node: {  // this is for pixi.js
+    fs: "empty"
+  },
+  resolve: {
+    modulesDirectories: ['web_modules', 'bower_components', 'node_modules']
+  },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-    }, {
-      test: /\.partial\.html$/,
-      loaders: ['html-loader'],
-    }, {
-      test: /\.css$/,
-      loaders: ["style", "css"],
-    }, {
-      test: /\.scss$/,
-      loaders: ["style", "sass"],
-    },{
-      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-      loaders: ['file-loader'],
-    }]
+    loaders: [
+      { test: /\.css/, loader: "style-loader!css-loader" },
+      { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
+      { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
+      { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
+      { test: /\.jpg/, loader: "file-loader" },
+      { test: /\.json/, loader: "json-loader" },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+      {test: /\.partial\.html$/, loaders: ['html-loader'],}
+    ]
   }
+  //module: {
+  //  loaders: [{
+  //    test: /\.js$/,
+  //    loaders: ['babel'],
+  //  }, {
+  //    test: /\.partial\.html$/,
+  //    loaders: ['html-loader'],
+  //  }, {
+  //    test: /\.css$/,
+  //    loaders: ["style", "css"],
+  //  }, {
+  //    test: /\.scss$/,
+  //    loaders: ["style", "sass"],
+  //  },{
+  //    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+  //    loaders: ['file-loader'],
+  //  },{
+  //    test: /\.json$/,
+  //    loaders: ['json-loader'],
+  //  }]
+  //},
+  //node: {
+  //  fs: "empty"
+  //}
 };

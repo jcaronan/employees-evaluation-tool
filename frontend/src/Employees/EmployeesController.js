@@ -2,7 +2,6 @@
  * Created by jcaronan on 11/4/15.
  */
 
-
 export class EmployeesController {
   constructor($uibModal, employeeInit, $location, EmployeeService, AssessmentService, AnswerService) {
     this.$uibModal = $uibModal
@@ -86,20 +85,18 @@ export class EmployeesController {
   goToAssessment(index){
     this.AssessmentService.setEmployee(this.employees[index])
     if(this.employees[index].status=='New'){
-      this.AssessmentService.addUpdateAssessment(this.employees[index].id)
+      this.AssessmentService.addUpdateAssessment(this.employees[index].id, 0)
+      this.AssessmentService.disabled =  true
       this.employees[index].status = 'Ongoing'
       this.EmployeeService.addUpdateEmployee(this.employees[index])
     }
     else if(this.employees[index].status=='Ongoing'){
       this.AssessmentService.getAssessmentByEmployee(this.employees[index].id)
     }else if(this.employees[index].status=='Done'){
-      //pdf
+      this.AssessmentService.finalizeAssessment(this.employees[index])
     }
-
     this.$location.path('/assessment');
   }
-
-
 }
 
 EmployeesController.$inject = ['$uibModal', 'employeeInit', '$location', 'EmployeeService', 'AssessmentService', 'AnswerService']

@@ -28,7 +28,21 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(__dirname, 'src')
+    }, {
+      test: /\.partial\.html$/,
+      loaders: ['html-loader'],
+    }, {
+      test: /\.css$/,
+      loaders: ["style", "css"],
+    }, {
+      test: /\.scss$/,
+      loaders: ["style", "sass"],
+    },{
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      loaders: ['file-loader'],
+    },{
+      test: /\.json$/,
+      loaders: ['json-loader'],
     }]
   }
 };

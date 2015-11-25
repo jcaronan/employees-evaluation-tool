@@ -11,7 +11,6 @@ export class AnswerService {
     this.answerApi = "answer";
   }
 
-
   getAllByAssessmentId(assessmentId) {
     var deferred = this.$q.defer();
     this.restService.get("answer/assessment", {'assessmentId': assessmentId}).then(
@@ -23,7 +22,6 @@ export class AnswerService {
       });
     return deferred.promise
   }
-
 
   addUpdateAnswer(assessmentKey, value, q) {
     this.restService.get(this.answerApi+'/question', {'assessmentId': assessmentKey, 'questionId':q.id}).then(
@@ -59,12 +57,8 @@ export class AnswerService {
       function error(error) {
 
       });
-
   }
 
-  submit() {
-
-  }
 }
 
 AnswerService.$inject = ['RestService', '$q']

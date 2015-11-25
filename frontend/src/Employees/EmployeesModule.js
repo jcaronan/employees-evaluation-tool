@@ -16,7 +16,6 @@ import { Answer } from './Answer'
 import { Assessment } from './Assessment'
 import { AnswerService } from './AnswerService'
 
-
 angular.module('EmployeesModule', ['ui.bootstrap','ngRoute'])
   .controller('EmployeesController', EmployeesController)
   .controller('EmpModalController', EmpModalController)

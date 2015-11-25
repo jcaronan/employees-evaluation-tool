@@ -3,35 +3,7 @@
 <head>
   <title>Employee Evaluation Tool</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="./src/styles/style.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-  <script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
-  <script>
-    function generatePDF() {
-//      var doc = new jsPDF();
-//      var options = { format : 'PNG' };
-//            doc.addHTML(document.getElementById("printPDF"),
-//                10,
-//                10,
-//                options,
-//          function() {
-//            doc.save('web.pdf');
-//          }
-//      );
-      var doc = new jsPDF();
-
-      doc.setFontSize(25);
-      doc.text(70,20, "Jasmin Caronan");
-      doc.setFontSize(14);
-      doc.text(20,30, "ssss");
-      doc.text(20,40, "vvv");
-      doc.setFontSize(12);
-      doc.setLineWidth(50);
-
-      doc.save("sample");
-    }
-
-  </script>
+  <!--<link href="./src/styles/style.css" rel="stylesheet"/>-->
 </head>
 <body>
   <div id="wrapper">
@@ -83,7 +55,7 @@
     </nav>
     <div ng-view></div>
   </div> <!--wrapper-->
-  <script src="/static/bundle.js"></script>
+  <script src="/dist/bundle.js"></script>
 
 </body>
 </html>

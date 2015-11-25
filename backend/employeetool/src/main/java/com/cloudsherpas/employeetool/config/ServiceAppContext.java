@@ -5,6 +5,7 @@ import com.cloudsherpas.employeetool.service.AnswerService;
 import com.cloudsherpas.employeetool.service.AssessmentService;
 import com.cloudsherpas.employeetool.service.EmployeeService;
 import com.cloudsherpas.employeetool.service.QuestionService;
+import com.cloudsherpas.employeetool.service.MailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -30,5 +31,10 @@ public class ServiceAppContext {
     @Bean(name="assessmentService")
     public AssessmentService getAssessmentService(){
         return new AssessmentService();
+    }
+
+    @Bean(name="mailService")
+    public MailService getMailService(){
+        return new MailService();
     }
 }

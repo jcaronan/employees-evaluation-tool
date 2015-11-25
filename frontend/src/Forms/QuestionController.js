@@ -25,6 +25,7 @@ export class QuestionController {
 
     modalInstance.result.then(function (question) {
         this.questionList.push(question)
+        console.log(question)
       }.bind(this),
       function () {
         console.log('Modal dismissed');

@@ -12,15 +12,15 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-offset-6 col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button" ng-click="ec.refreshList()"><i class="glyphicon glyphicon-search"></i></button>
-      </span>
-        </div>
-        <!-- /input-group -->
-      </div>
+      <!--<div class="col-lg-offset-6 col-lg-6">-->
+        <!--<div class="input-group">-->
+          <!--<input type="text" class="form-control" placeholder="Search for...">-->
+      <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-primary" type="button" ng-click="ec.refreshList()"><i class="glyphicon glyphicon-search"></i></button>-->
+      <!--</span>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /input-group &ndash;&gt;-->
+      <!--</div>-->
     </div>
 
     <div class="row tablerow">
@@ -100,6 +100,22 @@
 
 <!--Delete modal-->
 <script type="text/ng-template" id="delete.modal.tmpl">
+  <div class="modal-header">
+    <h3 class="modal-title">Delete Employee</h3>
+  </div>
+  <div class="modal-body">
+    <h5>Are you sure you want to delete {{ mc.employee.name }}?</h5>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mc.delete()">Delete</button>
+    <button class="btn btn-warning" type="button" ng-click="mc.cancel()">Cancel</button>
+  </div>
+</script>
+
+
+<!--Delete modal-->
+<script type="text/ng-template" id="report.modal.tmpl">
   <div class="modal-header">
     <h3 class="modal-title">Delete Employee</h3>
   </div>

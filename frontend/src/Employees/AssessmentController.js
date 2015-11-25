@@ -2,17 +2,15 @@
  * Created by jcaronan on 11/4/15.
  */
 
-//import PDFdoc from '../../node_modules/phantomjs-pdf/lib/phantomjs-pdf'
-
 export class AssessmentController {
   constructor(AssessmentService, AnswerService, questions, EmployeeService) {
     this.AssessmentService = AssessmentService
     this.AnswerService = AnswerService
     this.EmployeeService = EmployeeService
     this.employee = this.AssessmentService.getEmployee();
-    this.questions = this.AssessmentService.questions
+    this.questions = questions
+    this.disabled = this.AssessmentService.disabled
   }
-
 
   getName() {
     return this.employee.name
@@ -23,8 +21,8 @@ export class AssessmentController {
   }
 
   submitReport(){
-    
-
+    this.employee.status = 'Done'
+    this.AssessmentService.finalizeAssessment(this.employee);
   }
 }
 AssessmentController.$inject = ['AssessmentService' , 'AnswerService', 'questions', 'EmployeeService']
