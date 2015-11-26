@@ -1,0 +1,60 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <!-- Page Heading -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">
+            Assessment
+            <small>{{ac.getName()}}</small>
+          </h1>
+        </div>
+      </div>
+
+      <div class="row tablerow">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row tablehead">
+                <h3 class="panel-title"><i class="glyphicon glyphicon-list"></i> Form </h3>
+              </div>
+            </div>
+            <div class="panel-questions" ng-repeat="setQ in ac.questions track by $index">
+              <div class="row" style="padding-left: 30px">
+                <h4 class="q"> {{ setQ.q.text }} </h4>
+              </div>
+              <div class="row" style="padding-bottom: 10px">
+                <div class="input-group">
+                  <label class="checkbox-inline"><input type="radio" ng-model="setQ.a.rating" ng-value="1"
+                                                        ng-change="ac.autoSave(setQ.a.rating, setQ.q)"> Poor</label>
+                  <label class="checkbox-inline"><input type="radio" ng-model="setQ.a.rating" ng-value="2"
+                                                        ng-change="ac.autoSave(setQ.a.rating, setQ.q)"> Needs
+                    Improvement</label>
+                  <label class="checkbox-inline"><input type="radio" ng-model="setQ.a.rating" ng-value="3"
+                                                        ng-change="ac.autoSave(setQ.a.rating, setQ.q)">
+                    Satisfactory</label>
+                  <label class="checkbox-inline"><input type="radio" ng-model="setQ.a.rating" ng-value="4"
+                                                        ng-change="ac.autoSave(setQ.a.rating, setQ.q)">
+                    Excellent</label>
+                  <label class="checkbox-inline"><input type="radio" ng-model="setQ.a.rating" ng-value="5"
+                                                        ng-change="ac.autoSave(setQ.a.rating, setQ.q)">
+                    Exceptional</label>
+                </div>
+              </div>
+              <div class="split-pane-divider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    <div class="row" style="padding-right: 20px; padding-bottom: 15px">
+      <button type="button" class="btn btn-primary pull-right" ng-disabled="ac.disabled" ng-click="ac.submitReport()">
+        Submit
+      </button>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+
+
+

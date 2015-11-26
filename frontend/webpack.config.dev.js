@@ -5,10 +5,10 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/scripts/index'
   ],
   output: {
-    path: '/',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
@@ -19,20 +19,17 @@ module.exports = {
   node: {  // this is for pixi.js
     fs: "empty"
   },
-  resolve: {
-    modulesDirectories: ['web_modules', 'bower_components', 'node_modules']
-  },
   module: {
     loaders: [
-      { test: /\.css/, loader: "style-loader!css-loader" },
+      { test: /\.css/, loader: "style-loader!css-loader"},
       { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
-      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
+      { test: /\.jsx?$/, loader: 'babel', include: path.join(__dirname, 'src', 'scripts')},
       { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
       { test: /\.jpg/, loader: "file-loader" },
       { test: /\.json/, loader: "json-loader" },
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-      {test: /\.partial\.html$/, loaders: ['html-loader'],}
+      {test: /\.html$/, loaders: ['html-loader'], include: path.join(__dirname, 'src', 'scripts')}
     ]
   }
   //module: {
